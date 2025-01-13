@@ -1,16 +1,16 @@
+from picamera2 import Picamera2
 import cv2
 
-cap = cv2.VideoCapture('/dev/video0')
+# Inicia Picamera2
+picam2 = Picamera2()
+picam2.start()
 
-while cap.isOpened():
-    status, frame = cap.read()
-    if not status:
-        print("Error: No se puede acceder a la cámara.")
-        break
-
+while True:
+    frame = picam2.capture_array()
     cv2.imshow("frame", frame)
+    
     if cv2.waitKey(10) & 0xFF == ord('q'):
         break
 
-cap.release()
+picam2.stop()
 cv2.destroyAllWindows()
