@@ -1,10 +1,10 @@
 import cv2
 import torch
 
-model = torch.hub.load("ultralytics/yolov5", "yolov5s", pretrained=True)
+model = torch.hub.load("ultralytics/yolov5", "yolov5n", pretrained=True)
 
 def detector():
-    
+
     cap = cv2.VideoCapture('/dev/video0')  # Dirección de la cámara de la Raspberry Pi
     
 
